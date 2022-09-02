@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Form from "./components/Form";
 
+const personSchema = [
+  {
+    type: "text",
+    name: "fname",
+    placeholder: "First Name",
+    label: "First Name",
+  },
+  {
+    type: "text",
+    name: "lname",
+    placeholder: "Last Name",
+    label: "Last Name",
+  },
+  {
+    type: "number",
+    name: "age",
+    placeholder: "Enter Age",
+    label: "Age",
+  },
+];
+
+const dogSchema = [
+  {
+    type: "text",
+    name: "dogname",
+    placeholder: "Enter Dog Name",
+    label: "Dog Name",
+  },
+  {
+    type: "text",
+    name: "breed",
+    placeholder: "Enter Breed Name",
+    label: "Breed",
+  },
+];
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form schema={personSchema}></Form>
+      <Form schema={dogSchema} />
     </div>
   );
 }
