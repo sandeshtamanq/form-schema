@@ -3,26 +3,12 @@ import Input from "./Input";
 import errorHandler from "./validation/error-handler";
 
 const Form = ({ schema, data, setData }) => {
-  let errorObject = {};
-  const validate = schema.map((item) => {
-    errorObject[item.name] = "";
-    return 0;
-  });
-  const [error, setError] = useState(errorObject);
-  const changeHandler = (e, validate) => {
-    const { name, value } = e.target;
-    const formError = errorHandler(name, value, validate);
-
-    setData((prevData) => {
+  const setValue = (name, value) => {
+    setData((preVal) => {
       return {
-        ...prevData,
+        ...preVal,
         [name]: value,
       };
-    });
-
-    setError({
-      ...error,
-      [name]: formError,
     });
   };
 
@@ -43,13 +29,8 @@ const Form = ({ schema, data, setData }) => {
               {...item}
               key={index}
               value={data[item.name]}
-              changeHandler={(e) => changeHandler(e, item.validate)}
-              setData={setData}
-              error={error}
+              setValue={setValue}
             />
-            {error[item.name] && (
-              <div style={{ color: "red" }}>{error[item.name]}</div>
-            )}
           </div>
         );
       })}
