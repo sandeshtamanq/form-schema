@@ -1,24 +1,28 @@
 const INVALID_INPUT = "Invalid Input";
 
-const errorHandler = (property, value) => {
+const errorHandler = (property, value, validate) => {
   if (property === "fname") {
-    if (value.length < 5) return INVALID_INPUT;
+    if (value.length < validate.min_length && typeof value === validate.type)
+      return INVALID_INPUT;
   }
 
   if (property === "lname") {
-    if (value.length < 5) return INVALID_INPUT;
+    if (value.length < validate.min_length && typeof value === validate.type)
+      return INVALID_INPUT;
   }
 
   if (property === "age") {
-    if (value < 18) return INVALID_INPUT;
+    if (value < validate.min_age) return INVALID_INPUT;
   }
 
   if (property === "dogname") {
-    if (value.length < 5) return INVALID_INPUT;
+    if (value.length < validate.min_length && typeof value === validate.type)
+      return INVALID_INPUT;
   }
 
   if (property === "breed") {
-    if (value.length < 5) return INVALID_INPUT;
+    if (value.length < validate.min_length && typeof value === validate.type)
+      return INVALID_INPUT;
   }
 };
 

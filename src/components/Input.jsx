@@ -1,21 +1,14 @@
 import React, { useState } from "react";
-import errorHandler from "./validation/error-handler";
 
-const Input = ({ type, name, placeholder, label, setData, value }) => {
-  const [error, setError] = useState("");
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-
-    setData((prevData) => {
-      return {
-        ...prevData,
-        [name]: value,
-      };
-    });
-
-    const error = errorHandler(name, value);
-    setError(error);
-  };
+const Input = ({
+  type,
+  name,
+  placeholder,
+  label,
+  changeHandler,
+  value,
+  error,
+}) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -28,8 +21,8 @@ const Input = ({ type, name, placeholder, label, setData, value }) => {
           onChange={changeHandler}
           value={value}
         />
-        {error && <div style={{ color: "red" }}>{error}</div>}
       </div>
+      {/* {error && <div>{error}</div>} */}
     </div>
   );
 };
