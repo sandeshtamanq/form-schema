@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Form from "./components/Form";
 
@@ -51,8 +50,10 @@ const dogSchema = [
 function App() {
   return (
     <div className="App">
-      <Form schema={personSchema} data={personData}></Form>
-      <Form schema={dogSchema} data={dogData} />
+      <div>
+        <Form schema={personSchema} data={personData}></Form>
+        <Form schema={dogSchema} data={dogData} />
+      </div>
     </div>
   );
 }
