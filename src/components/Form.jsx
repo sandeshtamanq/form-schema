@@ -1,35 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "./Input";
 
 const Form = ({ schema, data, setData }) => {
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-
-    setData((prevData) => {
-      return {
-        ...prevData,
-        [name]: value,
-      };
-    });
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
+
     console.log(data);
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form
+      onSubmit={submitHandler}
+      style={{ display: "flex", justifyContent: "center", marginTop: "80px" }}
+    >
       {schema.map((item, index) => (
         <Input
           {...item}
           key={index}
-          changeHandler={changeHandler}
           value={data[item.name]}
+          setData={setData}
         />
       ))}
 
-      <div style={{ display: "flex", justifyContent: "center" }}></div>
-      <input type="submit" value="Submit" />
+      <button type="submit" value="Submit">
+        submit
+      </button>
     </form>
   );
 };
