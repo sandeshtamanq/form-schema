@@ -13,7 +13,7 @@ const Input = ({
   const [error, setError] = useState("");
   const changeHandler = (e, validate) => {
     const { name, value } = e.target;
-    setError(errorHandler(name, value, validate));
+    setError(errorHandler(value, validate));
     setValue(name, value);
   };
   return (
