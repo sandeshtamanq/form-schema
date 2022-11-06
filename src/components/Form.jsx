@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Input from "./Input";
 
-const Form = ({ schema, data }) => {
-  const [inputInfo, setInputInfo] = useState(data);
-  const [tableData, setTableData] = useState(data);
+const Form = ({ schema, data, setData }) => {
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
-    setInputInfo((inputInfo) => {
+    setData((prevData) => {
       return {
-        ...inputInfo,
+        ...prevData,
         [name]: value,
       };
     });
@@ -17,8 +15,7 @@ const Form = ({ schema, data }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setTableData(inputInfo);
-    console.log(inputInfo);
+    console.log(data);
   };
   return (
     <form onSubmit={submitHandler}>
@@ -27,17 +24,11 @@ const Form = ({ schema, data }) => {
           {...item}
           key={index}
           changeHandler={changeHandler}
-          value={inputInfo[item.name]}
+          value={data[item.name]}
         />
       ))}
 
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        {schema.map((item, index) => (
-          <div style={{ margin: "6px" }} key={index}>
-            {tableData[item.name]}
-          </div>
-        ))}
-      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}></div>
       <input type="submit" value="Submit" />
     </form>
   );
