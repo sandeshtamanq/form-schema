@@ -23,6 +23,17 @@ const personSchema = [
   },
 ];
 
+const personData = {
+  fname: "raju",
+  lname: "sharma",
+  age: "20",
+};
+
+const dogData = {
+  dogname: "lucy",
+  breed: "golden retriver",
+};
+
 const dogSchema = [
   {
     type: "text",
@@ -40,8 +51,8 @@ const dogSchema = [
 function App() {
   return (
     <div className="App">
-      <Form schema={personSchema}></Form>
-      <Form schema={dogSchema} />
+      <Form schema={personSchema} data={personData}></Form>
+      <Form schema={dogSchema} data={dogData} />
     </div>
   );
 }

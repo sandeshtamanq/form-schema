@@ -10,7 +10,7 @@ const Input = ({ type, name, placeholder, label, changeHandler, value }) => {
         id={name}
         placeholder={placeholder}
         onChange={changeHandler}
-        value={value.name}
+        value={value}
       />
     </>
   );

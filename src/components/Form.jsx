@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Input from "./Input";
 
-const Form = ({ schema }) => {
-  let inputData = {};
-  const initialState = schema.map((item) => {
-    inputData[item.name] = "";
-    return 0;
-  });
-  const [inputInfo, setInputInfo] = useState(inputData);
+const Form = ({ schema, data }) => {
+  // let inputData = {};
+  // const initialState = schema.map((item) => {
+  //   inputData[item.name] = "";
+  //   return 0;
+  // });
+  const [inputInfo, setInputInfo] = useState(data);
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
@@ -30,7 +30,7 @@ const Form = ({ schema }) => {
           {...item}
           key={index}
           changeHandler={changeHandler}
-          value={inputInfo}
+          value={inputInfo[item.name]}
         />
       ))}
       <input type="submit" value="Submit" />
