@@ -26,7 +26,7 @@ export const personSchema = [
     label: "Age",
     validate: {
       type: "number",
-      min_age: 18,
+      min_value: 18,
     },
   },
 ];

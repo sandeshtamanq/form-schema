@@ -8,7 +8,7 @@ const errorHandler = (value, validate) => {
       }
 
     case "number":
-      if (value < validate.min_age || !value.match(/^[0-9]*$/)) {
+      if (value < validate.min_value || !value.match(/^[0-9]*$/)) {
         return true;
       } else {
         return false;
