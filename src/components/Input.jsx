@@ -10,7 +10,7 @@ const Input = ({
   setValue,
   validate,
 }) => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   const changeHandler = (e, validate) => {
     const { name, value } = e.target;
     setError(errorHandler(value, validate));
@@ -29,7 +29,7 @@ const Input = ({
           value={value}
         />
       </div>
-      {error && <div style={{ color: "red" }}>{error}</div>}
+      {error && <div style={{ color: "red" }}>Invalid Input</div>}
     </div>
   );
 };
